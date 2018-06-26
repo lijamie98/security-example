@@ -1,0 +1,87 @@
+{% include "classpath:/templates/header.twig" %}
+
+<h1>TeleNav Incident Report</h1>
+<table class="table-bordered">
+    <tr>
+        <th class="align-right">DESCRIPTION / UPDATE</th>
+        <td>{{ev.description}}</td>
+    </tr>
+    <tr>
+        <th class="align-right">Outage reported by Partner/TMS</th>
+        <td>{{ev.reportedBy}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">Environment</th>
+        <td>{{ev.environment}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">Planned / Unplanned</th>
+        <td>{{ev.planned}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">Applications / Systems impacted</th>
+        <td>{{ev.impacted}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">Incident Number	SD</th>
+        <td>{{ev.incidentNumber}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">Severity Level</th>
+        <td>{{ev.severity}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">Outage start date & time</th>
+        <td>{{ev.outageStart}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">Outage end date & time</th>
+        <td>{{ev.outageEnd}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">ETA time for unplanned outages</th>
+        <td>{{ev.outageEta}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">Customer Services - Impacts</th>
+        <td>{{ev.customerServicesImpacts}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">Dealer Services - Impacts</th>
+        <td>{{ev.dealerServicesImpacts}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">CVT Business impacts</th>
+        <td>{{ev.cvtBusinessImpacts}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">Workaround Available</th>
+        <td>{{ev.workaroundAvailable}}</td>
+    </tr>
+
+    <tr>
+        <th class="align-right">Workaround description</th>
+        <td>{{ev.workaroundDescription}}</td>
+    </tr>
+
+</table>
+
+
+
+
+{% include "classpath:/templates/footer.twig" %}
+
+
+

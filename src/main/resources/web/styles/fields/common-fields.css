@@ -1,0 +1,9 @@
+#common-fields .left-fields .input-group-prepend .input-group-text {
+    width: 115px;
+    text-align: right;
+}
+
+#common-fields .right-fields .input-group-prepend .input-group-text {
+    width: 105px;
+    text-align: left;
+}

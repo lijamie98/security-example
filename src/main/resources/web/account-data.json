@@ -1,0 +1,36 @@
+{
+  "accounts": [
+    {
+      "name": "NOC",
+      "email": "noc@telenav.com"
+    },
+    {
+      "name": "SLA Carrier",
+      "email": "sched-maint@telenav.com"
+    },
+    {
+      "name": "SLA Scout",
+      "email": "mms.notify@att.com, DL-PartnerServiceMgmt@att.com, NatPlat-Outage-Notifications@sprint.com, Delroy.murray@t-mobile.com, uscdlnocsurveillance@uscellular.com"
+    },
+    {
+      "name": "SLA Nuance",
+      "email": "dcs_vendor_notification@nuance.com, robertp@telenav.com"
+    },
+    {
+      "name": "SLA DP1 and DP2",
+      "email": "sla-dp@telenav.com"
+    },
+    {
+      "name": "SLA Waikiki",
+      "email": "telematics_incident_reporting@toyota.com, ramyas@telenav.com"
+    },
+    {
+      "name": "SLA Lahaina",
+      "email": "xevo-escalations@telenav.com"
+    },
+    {
+      "name": "SLA Ford NA",
+      "email": "noc@telenav.com"
+    }
+  ]
+}

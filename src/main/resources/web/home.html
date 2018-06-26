@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css"/>
+
+    <link rel="stylesheet" href="styles/app.css">
+
+    <title>Telenav NOC Notifier</title>
+</head>
+<body>
+
+<header>
+    <h1 class="header-title">
+        <img src="styles/telenav_logo.svg" style="height: 36px; vertical-align: unset;">
+        TeleNav NOC Notifier
+    </h1>
+</header>
+
+<main>
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Accounts START -->
+
+            <div class="col-xs-12 col-sm-2" style="min-width: 250px;" id="accounts">
+                <h3>Accounts</h3>
+
+
+            </div>
+
+            <!-- Accounts END -->
+
+            <div class="col">
+
+                <!-- Common Fields START -->
+
+                <div class="col-xs-12" id="common-fields">
+                    <h3>Common Fields</h3>
+
+                    <div class="row">
+
+                        <div class="col">
+                            <div class="input-group mb-1 left-fields">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Event Name:</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Event Name" title="Event Name"
+                                       id="event-name-input" value="0_default_Scheduled_Maintenance">
+                            </div>
+
+                            <div class="input-group mb-1 left-fields">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Event Type:</span>
+                                </div>
+                                <select class="custom-select" id="event-type-input" title="Event Type">
+                                    <option selected>Choose...</option>
+                                    <option value="scheduledMaintenance">Scheduled Maintenance</option>
+                                    <option value="unscheduledServiceInterruption">Unscheduled Service Interruption
+                                    </option>
+                                    <option value="unscheduledMaintenance">Unscheduled Maintenance</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group mb-1 left-fields">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Subject:</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Subject" title="Subject"
+                                       id="subject-input"
+                                       value="">
+                            </div>
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 right-fields-container" style="min-width: 250px;">
+                            <div class="input-group date mb-1 right-fields" id="event-start"
+                                 data-target-input="nearest">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Event Start:</span>
+                                </div>
+                                <input type="text" class="form-control datetimepicker-input"
+                                       aria-label="Event Start"
+                                       title="Event Start" data-target="#event-start" id="event-start-input">
+                                <div class="input-group-append" data-target="#event-start" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-1 right-fields" id="event-end" data-target-input="nearest">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Event End:</span>
+                                </div>
+                                <input type="text" class="form-control datetimepicker-input" aria-label="Event End"
+                                       title="Event End" data-target="#event-end" id="event-end-input">
+                                <div class="input-group-append" data-target="#event-end" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-1 right-fields" id="duration" data-target-input="nearest">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Duration:</span>
+                                </div>
+                                <input type="text" class="form-control datetimepicker-input"
+                                       aria-label="Duration"
+                                       title="Duration" data-target="#duration" id="duration-input">
+                                <div class="input-group-append" data-target="#duration"
+                                     data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fas fa-clock"></i></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1 left-fields">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">From:</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="From" title="From" id="from-input"
+                               value="noccommunication@telenav.com">
+                    </div>
+
+                    <div class="input-group mb-1 left-fields">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="height: 100%;">To:</span>
+                        </div>
+                        <textarea class="form-control" aria-label="To" title="To" id="to-input"></textarea>
+                    </div>
+                </div>
+
+                <!-- Common Fields END -->
+
+                <hr>
+
+                <h3>Special Fields</h3>
+
+                <ul class="nav nav-pills mb-2" id="special-fields-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="general-tab" href="#general-fields" data-toggle="pill" role="tab"
+                           aria-controls="general-fields" aria-selected="true">General</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="toyota-tab" href="#toyota-fields" data-toggle="pill" role="tab"
+                           aria-controls="toyota-fields"
+                           aria-selected="false">Toyota</a>
+                    </li>
+                </ul>
+
+                <div class="col-xs-12 tab-content">
+
+                    <!-- General Fields START -->
+
+                    <div class="tab-pane fade show active" id="general-fields" role="tabpanel"
+                         aria-labelledby="general-fields">
+                        <div class="input-group mb-1 left-fields">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" style="height: 100%;">Description:</span>
+                            </div>
+                            <textarea class="form-control" aria-label="Description" title="Description"
+                                      id="general-description-input">To improve the quality and reliability of the TeleNav Service, the work below will be performed during the maintenance window above:</textarea>
+                        </div>
+
+                        <div class="input-group mb-1 left-fields">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" style="height: 100%;">Actions: </span>
+                            </div>
+                            <textarea class="form-control" aria-label="Actions:" title="Actions:" id="actions-input">1 -
+2 -
+3 - </textarea>
+                        </div>
+
+                        <div class="input-group mb-1 left-fields">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" style="height: 100%;">Severity: </span>
+                            </div>
+                            <textarea class="form-control" aria-label="Severity:"
+                                      title="Severity:" id="severity-input">There is a potential SIR 2 level of impact (10-24%) of subscribers impacted due to the nature of this work.</textarea>
+                        </div>
+
+                        <div class="input-group mb-1 left-fields">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" style="height: 100%;">Impact:</span>
+                            </div>
+                            <textarea class="form-control" aria-label="Impact"
+                                      title="Impact" id="impact-input">Describe impact to Navigation users.</textarea>
+                        </div>
+
+                        <div class="input-group mb-2 left-fields">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" style="height: 100%;">
+                                Progress:
+                            </span>
+                            </div>
+                            <textarea class="form-control" aria-label="Progress"
+                                      title="Progress" id="progress-input">Email will be sent 30 minutes prior to start of work and at 30 minute intervals thereafter until End of Maintenance</textarea>
+                        </div>
+
+                        <button type="button" class="btn btn-outline-primary" id="general-submit"
+                                style="float: right;">
+                            Submit
+                        </button>
+                    </div>
+
+                    <!-- General Fields END -->
+
+                    <!-- Toyota Fields START -->
+
+                    <div class="tab-pane fade" id="toyota-fields" role="tabpanel" aria-labelledby="general-fields">
+                        <div class="input-group mb-1 left-fields">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" style="height: 100%;">Description:</span>
+                            </div>
+                            <textarea class="form-control" aria-label="Description" title="Description"
+                                      id="toyota-description-input">Telenav Scheduled Maintenance</textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group mb-1 left-fields">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Reported By:</span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Reported By"
+                                           title="Reported By" id="reported-by-input" value="TELENAV">
+                                </div>
+
+                                <div class="input-group mb-1 left-fields">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Environment:</span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Environment"
+                                           title="Environment" id="environment-input" value="Production">
+                                </div>
+
+                                <div class="input-group mb-1 left-fields">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Planned / Unplanned:</span>
+                                    </div>
+                                    <select class="custom-select" id="planned-unplanned-input"
+                                            title="Planned / Unplanned">
+                                        <option selected>Choose...</option>
+                                        <option value="planned">Planned</option>
+                                        <option value="unplanned">Unplanned</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-4 right-fields-container" style="min-width: 250px;">
+                                <div class="input-group mb-1 right-fields" id="outage-start"
+                                     data-target-input="nearest">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Outage Start:</span>
+                                    </div>
+                                    <input type="text" class="form-control datetimepicker-input"
+                                           aria-label="Outage Start"
+                                           title="Outage Start" data-target="#outage-start" id="outage-start-input">
+                                    <div class="input-group-append" data-target="#outage-start"
+                                         data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+                                    </div>
+                                </div>
+
+                                <div class="input-group mb-1 right-fields" id="outage-end" data-target-input="nearest">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Outage End:</span>
+                                    </div>
+                                    <input type="text" class="form-control datetimepicker-input"
+                                           aria-label="Outage End"
+                                           title="Outage End" data-target="#outage-end" id="outage-end-input">
+                                    <div class="input-group-append" data-target="#outage-end"
+                                         data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+                                    </div>
+                                </div>
+
+                                <div class="input-group mb-1 right-fields" id="eta-time" data-target-input="nearest">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">ETA Time:</span>
+                                    </div>
+                                    <input type="text" class="form-control datetimepicker-input"
+                                           aria-label="ETA Time"
+                                           title="ETA Time" data-target="#eta-time" id="eta-time-input">
+                                    <div class="input-group-append" data-target="#eta-time"
+                                         data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fas fa-clock"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-1 left-fields">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" style="height: 100%;">Affected: </span>
+                            </div>
+                            <textarea class="form-control" aria-label="Affected" title="Affected" id="affected-input">Scout GPS Link</textarea>
+                        </div>
+
+                        <div class="input-group mb-1 left-fields">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Incident Number:</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Incident Number"
+                                   title="Incident Number" id="incident-number-input">
+                        </div>
+
+                        <div class="input-group mb-1 left-fields">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" style="height: 100%;">Severity Level: </span>
+                            </div>
+                            <textarea class="form-control" aria-label="Severity Level:"
+                                      title="Severity Level:" id="severity-level-input">There is a potential SIR 2 level of impact (10-24%) of subscribers impacted due to the nature of this work. Low/Medium/High</textarea>
+                        </div>
+
+                        <div class="input-group mb-1 left-fields">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" style="height: 100%;">
+                                Customer Services Impacts:
+                            </span>
+                            </div>
+                            <textarea class="form-control" aria-label="Customer Services Impacts"
+                                      title="Customer Services Impacts" id="customer-services-impact-input">None</textarea>
+                        </div>
+
+                        <div class="input-group mb-1 left-fields">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" style="height: 100%;">
+                                Dealer Services Impacts:
+                            </span>
+                            </div>
+                            <textarea class="form-control" aria-label="Dealer Services Impacts"
+                                      title="Dealer Services Impacts" id="dealer-services-impact-input">None</textarea>
+                        </div>
+
+                        <div class="input-group mb-3 left-fields">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" style="height: 100%;">
+                                CVT Business Impacts:
+                            </span>
+                            </div>
+                            <textarea class="form-control" aria-label="CVT Business Impacts"
+                                      title="CVT Business Impacts" id="cvt-business-impact-input">None</textarea>
+                        </div>
+
+
+                        <div class="input-group mb-3 left-fields">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" style="height: 100%;">
+                                Workaround Available:
+                            </span>
+                            </div>
+                            <textarea class="form-control" aria-label="Workaround Available"
+                                      title="Workaround Available" id="workaround-available-input">None</textarea>
+                        </div>
+
+
+                        <div class="input-group mb-3 left-fields">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" style="height: 100%;">
+                                Workaround Description:
+                            </span>
+                            </div>
+                            <textarea class="form-control" aria-label="Workaround Description"
+                                      title="Workaround Description" id="workaround-description-input">None</textarea>
+                        </div>
+
+
+                        <button type="button" class="btn btn-outline-primary" id="toyota-submit"
+                                style="float: right;">
+                            Submit
+                        </button>
+                    </div>
+
+                    <!-- Toyota Fields END -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<footer>Telenav © 2017</footer>
+
+<!-- Modal START -->
+
+<div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="Submitted Modal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document" style="height: calc(100% - 56px);">
+        <div class="modal-content" style="height: 100%;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="position: relative; top: 0; left: 0;">
+                <iframe id="modal-iframe" frameborder="0" style="position: absolute; top: 0; left: 0; height: 100%; width: 100%;"></iframe>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal END -->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script>
+
+<script src="scripts/moment.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+<script src="scripts/accounts.js"></script>
+<script src="scripts/small-listeners.js"></script>
+<script src="scripts/inputs.js"></script>
+<script src="scripts/submit.js"></script>
+</body>
+</html>

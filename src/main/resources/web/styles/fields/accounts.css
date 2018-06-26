@@ -1,0 +1,26 @@
+.account {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 8px;
+
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    transition: all 150ms;
+}
+
+.account:not(.selected):hover {
+    border-color: #444444;
+}
+
+.account.selected:hover {
+    border-color: #0062cc;
+}
+
+.account.selected {
+    border-color: #007bff;
+    background: #007bff;
+    color: white;
+}

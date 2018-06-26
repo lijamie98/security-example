@@ -1,0 +1,23 @@
+{% include "classpath:/templates/header.twig" %}
+    <h1>{{ ev.subject }}</h1>
+    <div>
+        Event Start : {{ ev.startTime }}<br>
+        Event End : {{ ev.endTime }}<br>
+        Event Duration : {{ ev.duration }}<br>
+    </div>
+    <h2>Description</h2>
+    <div><code style="color: #000">{{ ev.description }}</code></div>
+
+    <h2>Actions Being Taken:</h2>
+    <div><code style="color: #000">{{ ev.actions }}</code></div>
+
+    <h2>Partner Severity Level:</h2>
+    <div><code style="color: #000">{{ ev.severity }}</code></div>
+
+    <h2>Service Impact:</h2>
+    <div><code style="color: #000">{{ ev.impact }}</code></div>
+
+    <h2>Notification of Work Progress:</h2>
+    <div><code style="color: #000">{{ ev.progress }}</code></div>
+
+{% include "classpath:/templates/footer.twig" %}

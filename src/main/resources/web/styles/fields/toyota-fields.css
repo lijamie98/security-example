@@ -1,0 +1,9 @@
+#toyota-fields .left-fields .input-group-prepend .input-group-text {
+    width: 218px;
+    text-align: left;
+}
+
+#toyota-fields .right-fields .input-group-prepend .input-group-text {
+    width: 119px;
+    text-align: left;
+}
