@@ -1,4 +1,4 @@
-package com.telenav.vulner.jsoninjection;
+package com.javilet.vulner.jsoninjection;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

@@ -1,4 +1,4 @@
-package com.telenav.vulner.jsoninjection;
+package com.javilet.vulner.jsoninjection;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
